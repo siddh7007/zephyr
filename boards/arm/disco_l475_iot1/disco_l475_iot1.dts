@@ -66,8 +66,7 @@
 &i2c1 {
 	status = "okay";
 	clock-frequency = <I2C_BITRATE_FAST>;
-};
-
+	};
 &i2c2 {
 	status = "okay";
 	clock-frequency = <I2C_BITRATE_FAST>;
@@ -207,5 +206,13 @@
 };
 
 &rng {
+	status = "okay";
+};
+
+&dac1 {
+	status = "okay";
+};
+
+&adc1 {
 	status = "okay";
 };

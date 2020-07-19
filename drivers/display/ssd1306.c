@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright (c) 2018 PHYTEC Messtechnik GmbH
  *
  * SPDX-License-Identifier: Apache-2.0
@@ -414,7 +414,7 @@ static int ssd1306_init(struct device *dev)
 {
 	struct ssd1306_data *driver = dev->driver_data;
 
-	LOG_DBG("");
+	LOG_DBG(" init %s", DT_INST_BUS_LABEL(0));
 
 	driver->i2c = device_get_binding(DT_INST_BUS_LABEL(0));
 	if (driver->i2c == NULL) {
@@ -439,7 +439,7 @@ static int ssd1306_init(struct device *dev)
 #endif
 
 	if (ssd1306_init_device(dev)) {
-		LOG_ERR("Failed to initialize device!");
+		LOG_ERR("Failed to initialize device!!!");
 		return -EIO;
 	}
 

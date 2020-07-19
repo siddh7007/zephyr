@@ -471,16 +471,36 @@ SHELL_STATIC_SUBCMD_SET_CREATE(sub_adc_cmds,
  * TODO generalize with a more flexible for-each macro that doesn't
  * assume a semicolon separator.
  */
+
+//Made change to support ADC1 one STM32, Commented out original code
+
+/*	SHELL_STATIC_SUBCMD_SET_CREATE(
+		sub_adc,
+
+	#if DT_NODE_HAS_STATUS(DT_DRV_INST(0), okay)
+		ADC_SHELL_COMMAND(0),
+	#endif
+	#if DT_NODE_HAS_STATUS(DT_DRV_INST(1), okay)
+		ADC_SHELL_COMMAND(1),
+	#endif
+	#if DT_NODE_HAS_STATUS(DT_DRV_INST(2), okay)
+		ADC_SHELL_COMMAND(2),
+	#endif
+		SHELL_SUBCMD_SET_END 
+	);
+	*/
+
 SHELL_STATIC_SUBCMD_SET_CREATE(
 	sub_adc,
+
 #if DT_NODE_HAS_STATUS(DT_DRV_INST(0), okay)
-	ADC_SHELL_COMMAND(0),
-#endif
-#if DT_NODE_HAS_STATUS(DT_DRV_INST(1), okay)
 	ADC_SHELL_COMMAND(1),
 #endif
-#if DT_NODE_HAS_STATUS(DT_DRV_INST(2), okay)
+#if DT_NODE_HAS_STATUS(DT_DRV_INST(1), okay)
 	ADC_SHELL_COMMAND(2),
+#endif
+#if DT_NODE_HAS_STATUS(DT_DRV_INST(2), okay)
+	ADC_SHELL_COMMAND(3),
 #endif
 	SHELL_SUBCMD_SET_END /* Array terminated. */
 );
